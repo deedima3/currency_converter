@@ -17,7 +17,7 @@ class CurrencyController {
     this.router.delete(this.path, this.deleteDataByTo);
   }
 
-  getAllData = async (req: express.Request, res: express.Response) => {
+  getAllData = async (res: express.Response) => {
     const data = await CurrencyService.fetchAllData();
     if (data) {
       res.status(200).json(data);
@@ -32,7 +32,7 @@ class CurrencyController {
   ) => {
     try {
       let currency = request.body as Currency;
-      let data = await CurrencyService.updateCurrency(currency);
+      await CurrencyService.updateCurrency(currency);
       response.status(200).json({ message: "Data Added" })
     } catch (e) {
       console.log(e);

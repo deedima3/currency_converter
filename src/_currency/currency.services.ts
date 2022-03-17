@@ -2,7 +2,6 @@ import Base from "deta/dist/types/base";
 import { Currency } from "./currency.interface";
 import { Deta } from "deta";
 import "dotenv/config";
-import { ObjectType } from "deta/dist/types/types/basic";
 
 const { PROJECT_KEY } = process.env;
 

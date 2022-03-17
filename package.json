@@ -16,7 +16,8 @@
   "scripts": {
     "watch": "tsc --watch",
     "start": "node dist/server.js",
-    "dev": "nodemon dist/server.js"
+    "dev": "nodemon dist/server.js",
+    "build" : "tsc --project ./"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
