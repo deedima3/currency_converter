@@ -8,4 +8,4 @@ const app = new App(
   5000,
 );
  
-app.listen();
+module.exports = app.app;
