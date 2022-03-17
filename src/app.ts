@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import Controller from './interfaces/controller.interface';
-import ApiMiddleware from './middleware/api.middleware';
 
 class App {
   public app: express.Application;
@@ -18,7 +17,6 @@ class App {
  
   private initializeMiddlewares() {
     this.app.use(bodyParser.json());
-    this.app.use(ApiMiddleware.checkApiToken);
   }
 
   private initializePlugin(){

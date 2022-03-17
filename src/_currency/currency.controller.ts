@@ -17,12 +17,12 @@ class CurrencyController {
     this.router.delete(this.path, this.deleteDataByTo);
   }
 
-  getAllData = async (res: express.Response) => {
+  getAllData = async (_request: express.Request, response: express.Response) => {
     const data = await CurrencyService.fetchAllData();
     if (data) {
-      res.status(200).json(data);
+      response.status(200).json(data);
     } else {
-      res.status(404).json({ message: "Data not found" });
+      response.status(404).json({ message: "Data not found" });
     }
   }
 
@@ -46,7 +46,7 @@ class CurrencyController {
   ) => {
     let curr = await CurrencyService.fetchCurrencyByTo(request.params.to);
     console.log(curr);
-    curr?.length
+    curr
       ? response.status(200).json(curr)
       : response.status(404).json({ message: "No currency found" });
   };
